@@ -1,0 +1,35 @@
+all 2d boards are data type: vector<vector<int>> varName;
+
+private:
+	PuzzleNode *bestNode; //FIX THESE
+	PuzzleNode *parent;	  //FIX THESE
+public:
+	vector<vector<int>> goal = {{1, 2, 3}, {4, 0, 6}, {7, 8, 9}};
+	vector<vector<int>> board;
+	vector<PuzzleNode> successors;
+	PuzzleNode(vector<vector<int>> arr);
+	bool isGoal();
+	void setBoard(vector<vector<int>> arr);
+
+	void addSucc(PuzzleNode succ);
+	void removeSucc(PuzzleNode rsucc);
+
+	void setBest(PuzzleNode *bestNode); 
+	void setParent(PuzzleNode *par); 
+	PuzzleNode* getBest(); 
+	PuzzleNode* getParent(); 
+		
+	float g;
+	float h;
+	float f;
+
+
+Setting Parent and best node I had to do via pointers, due to recursive declaration
+
+testn.setBest(&testn2);
+testn.setParent(&testn2);
+
+Use pointer notataion when dealing with the parent and bestnode,
+I might be able to just fix this on my end so dot notation can be consistantly used.
+
+testn.getBest()->board
